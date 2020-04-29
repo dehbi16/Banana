@@ -8,6 +8,14 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	private boolean isRunning = false;
 	private Thread thread;
+	int height = 700;
+	int width = 600; 
+	
+	public Game() {
+		new Window(width, height, "Game", this);
+		
+		
+	}
 	
 	private void start() {
 		isRunning = true;
