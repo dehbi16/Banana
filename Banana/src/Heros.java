@@ -49,4 +49,16 @@ public class Heros {
 	public void setY(int y) {
 		this.y = y;
 	}
+	public void Up() {
+		this.setY(getY() - 1);
+	}
+	public void Down() {
+		this.setY(getY() + 1);
+	}
+	public void Left() {
+		this.setX(getX() - 1);
+	}
+	public void Right() {
+		this.setX(getX() + 1);
+	}
 }
