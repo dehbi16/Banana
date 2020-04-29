@@ -2,7 +2,7 @@ import java.awt.Canvas;
 
 public class Game extends Canvas implements Runnable {
 
-	/**
+	/**dfbfb
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
