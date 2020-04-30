@@ -1,4 +1,8 @@
 import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
+
 
 public class Game extends Canvas implements Runnable {
 
@@ -8,13 +12,17 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	private boolean isRunning = false;
 	private Thread thread;
-	int height = 700;
-	int width = 600; 
+	public static final int WIDTH= 800, HEIGHT=WIDTH/12*9;
+	Heros hero;
+	KeyInput keyInput;
 	
 	public Game() {
-		new Window(width, height, "Game", this);
-		
-		
+		new Window(WIDTH, HEIGHT, "Game", this);
+		hero = new Heros(100, 100, null, 50, 50);
+		keyInput = new KeyInput(hero);
+		this.addKeyListener(keyInput);
+
+		start();
 	}
 	
 	private void start() {
@@ -63,14 +71,25 @@ public class Game extends Canvas implements Runnable {
 
 	private void tick() {
 		// TODO Auto-generated method stub
-		
+		hero.tick();
 	}
 
 	
 
 	private void render() {
 		// TODO Auto-generated method stub
+		BufferStrategy bs = this.getBufferStrategy();
+		if(bs == null) {
+			this.createBufferStrategy(3);
+			return;
+		}
+		Graphics g = bs.getDrawGraphics();
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
+		hero.render(g);
+		g.dispose();
+		bs.show();
 	}
 
 }
