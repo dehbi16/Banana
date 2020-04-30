@@ -55,18 +55,7 @@ public class Heros {
 	public void setY(int y) {
 		this.y = y;
 	}
-	public void Up() {
-		this.setY(getY() - 1);
-	}
-	public void Down() {
-		this.setY(getY() + 1);
-	}
-	public void Left() {
-		this.setX(getX() - 1);
-	}
-	public void Right() {
-		this.setX(getX() + 1);
-	}
+	
 
 	public void tick() {
 		if(isUp()) y-=vitesse;
@@ -74,6 +63,7 @@ public class Heros {
 		if(isRight()) x+=vitesse;
 		if(isLeft()) x-=vitesse;
 	}
+	
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
 		g.setColor(Color.black);

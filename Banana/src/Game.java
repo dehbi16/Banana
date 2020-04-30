@@ -88,6 +88,7 @@ public class Game extends Canvas implements Runnable {
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		hero.render(g);
+		
 		g.dispose();
 		bs.show();
 	}
